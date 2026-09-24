@@ -8,7 +8,7 @@
         "packages/*"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "dev:cli" : "bun run packages/cli/src/index.ts"
     },
     "devDependencies": {
         "@types/node": "^26.6.2"
