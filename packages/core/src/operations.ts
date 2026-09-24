@@ -14,7 +14,7 @@ export async function sendTelegramMessage(
     const parsedInput = telegramMessageOptionsSchema.parse(options);
     const requestBody = telegramMessageRequestSchema.parse({
         chat_id: parsedInput.chatId,
-        message: parsedInput.message
+        text: parsedInput.message
     });
 
     const response = await fetch(`https://api.telegram.org/bot${parsedInput.botToken}/sendMessage`, {
@@ -26,6 +26,11 @@ export async function sendTelegramMessage(
     });
 
     const responseData = await response.json();
+
+    if (!responseData.ok || !response.ok) {
+        throw new Error(`Error sending message: ${responseData.description}`);
+    }
+
     return telegramMessageOutputSchema.parse(
         {
             ok: true,

@@ -11,7 +11,7 @@ export const telegramMessageOptionsSchema = telegramMessageInputSchema.extend({
 
 export const telegramMessageRequestSchema = z.object({
     chat_id: z.string().min(1).max(100),
-    message: z.string().min(1).max(4096)
+    text: z.string().min(1).max(4096)
 });
 
 export const telegramMessageResponseSchema = z.object({
