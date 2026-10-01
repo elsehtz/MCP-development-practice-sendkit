@@ -5,11 +5,14 @@
     "version": "0.0.0",
     "main": "index.js",
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "apps/*"
     ],
     "scripts": {
         "dev:cli" : "bun run packages/cli/src/index.ts",
-        "dev:stdio": "bun run packages/stdio-mcp/src/index.ts"
+        "dev:stdio": "bun run packages/stdio-mcp/src/index.ts", 
+        "dev:local-mcp": "bun run packages/stdio-mcp/src/index.ts", 
+        "dev:remote-mcp": "bun run apps/remote-mcp/src/index.ts"
     },
     "devDependencies": {
         "@types/node": "^26.6.2"
